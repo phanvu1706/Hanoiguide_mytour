@@ -2,7 +2,7 @@ package com.example.hanoiguide_lichtrinh.ultis;
 
 import com.example.hanoiguide_lichtrinh.R;
 import com.example.hanoiguide_lichtrinh.R.drawable;
-import com.example.hanoiguide_lichtrinh.entity.Global;
+import com.example.hanoiguide_lichtrinh.model.Global;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

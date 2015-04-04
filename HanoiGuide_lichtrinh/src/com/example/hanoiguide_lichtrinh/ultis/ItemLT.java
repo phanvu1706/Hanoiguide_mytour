@@ -4,7 +4,7 @@ import com.example.hanoiguide_lichtrinh.My_tour_review;
 import com.example.hanoiguide_lichtrinh.R;
 import com.example.hanoiguide_lichtrinh.R.id;
 import com.example.hanoiguide_lichtrinh.R.layout;
-import com.example.hanoiguide_lichtrinh.entity.ItemTest;
+import com.example.hanoiguide_lichtrinh.model.ItemTest;
 
 import android.content.Intent;
 import android.os.Bundle;

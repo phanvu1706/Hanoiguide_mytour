@@ -3,8 +3,8 @@ package com.example.hanoiguide_lichtrinh;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.hanoiguide_lichtrinh.entity.Global;
-import com.example.hanoiguide_lichtrinh.entity.ItemTest;
+import com.example.hanoiguide_lichtrinh.model.Global;
+import com.example.hanoiguide_lichtrinh.model.ItemTest;
 import com.example.hanoiguide_lichtrinh.ultis.TabPagerAdapter;
 
 import android.app.ActionBar;
