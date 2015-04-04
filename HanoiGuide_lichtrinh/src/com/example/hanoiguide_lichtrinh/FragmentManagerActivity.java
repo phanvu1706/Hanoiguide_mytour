@@ -2,9 +2,12 @@ package com.example.hanoiguide_lichtrinh;
 
 import com.example.hanoiguide_lichtrinh.R;
 
+import android.R.bool;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.view.Menu;
+import android.view.MenuInflater;
 import it.neokree.materialnavigationdrawer.MaterialNavigationDrawer;
 import it.neokree.materialnavigationdrawer.elements.MaterialAccount;
 import it.neokree.materialnavigationdrawer.elements.MaterialSection;
@@ -43,6 +46,7 @@ public class FragmentManagerActivity extends MaterialNavigationDrawer implements
 				new FragmentIndex()));
 		this.addSection(newSection("Lịch trình", R.drawable.menu_diemdulich,
 				new My_tour_list()));
+		
 	}
 
 	@Override
