@@ -10,6 +10,7 @@ import com.example.hanoiguide_lichtrinh.ultis.myCustomAlert;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
 
@@ -29,6 +31,8 @@ public class My_tour_add_new extends ActionBarActivity {
 	EditText etDiemDB;
 	EditText etTenTour;
 	Button btnTieptuc;
+	EditText etNgaybatdau;
+	EditText etNgayketthuc;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +71,69 @@ public class My_tour_add_new extends ActionBarActivity {
 				// TODO Auto-generated method stub
 				Intent i = new Intent(getApplicationContext(), My_tour_map.class);
 				startActivity(i);
+			}
+		});
+		etNgaybatdau = (EditText) findViewById(R.id.etNgaybd);
+		etNgaybatdau.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				final Dialog dialog = new Dialog(My_tour_add_new.this);
+
+				dialog.setContentView(R.layout.custom_dialog_datetimepicker);
+				dialog.setTitle("Ngày bắt đầu");
+
+				Button btnSetDate = (Button) dialog
+						.findViewById(R.id.btnSetDate);
+				final DatePicker date = (DatePicker) dialog
+						.findViewById(R.id.datePicker1);
+
+				btnSetDate.setOnClickListener(new OnClickListener() {
+
+					@Override
+					public void onClick(View v) {
+						int dayOfMonth = date.getDayOfMonth();
+						int month = date.getMonth() + 1;
+						int year = date.getYear();
+						etNgaybatdau.setText(dayOfMonth + "/" + month + "/"
+								+ year);
+						dialog.dismiss();
+					}
+				});
+
+				dialog.show();
+			}
+		});
+
+		etNgayketthuc = (EditText) findViewById(R.id.etNgaykt);
+		etNgayketthuc.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				final Dialog dialog = new Dialog(My_tour_add_new.this);
+
+				dialog.setContentView(R.layout.custom_dialog_datetimepicker);
+				dialog.setTitle("Ngày bắt đầu");
+
+				Button btnSetDate = (Button) dialog
+						.findViewById(R.id.btnSetDate);
+				final DatePicker date = (DatePicker) dialog
+						.findViewById(R.id.datePicker1);
+
+				btnSetDate.setOnClickListener(new OnClickListener() {
+
+					@Override
+					public void onClick(View v) {
+						int dayOfMonth = date.getDayOfMonth();
+						int month = date.getMonth() + 1;
+						int year = date.getYear();
+						etNgayketthuc.setText(dayOfMonth + "/" + month + "/"
+								+ year);
+						dialog.dismiss();
+					}
+				});
+
+				dialog.show();
 			}
 		});
 	}
