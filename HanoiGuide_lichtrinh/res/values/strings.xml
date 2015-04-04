@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Hanoi Guide</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="txt_image_slider">Image Slideshow</string>
+    <string name="no_internet_connection">No Internet Connection</string>
+    <string name="time_out">Time Out</string>
+    <string name="error_occured">Error Occurred</string>
+    <!-- Lista de titulos de navegacion -->
+    <string-array name="nav_options">
+        <item>Điểm du lịch</item>
+        <item>Khách sạn</item>
+        <item>Nhà hàng</item>
+        <item>Mua sắm</item>
+        <item>Giao thông</item>
+    </string-array>
+    <string-array name="footer_options">
+        <item>Cài đặt</item>
+        <item>Thông tin</item>
+        <item>Thoát</item>
+    </string-array>
+    <!-- Lista de iconos de navegacion -->
+
+    <array name="diem_bat_dau">
+        <item>Vị trí hiện tại</item>
+        <item>Điểm 1</item>
+        <item>Điểm 2</item>
+    </array>
+
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+
+    <color name="egg">#aca9c5</color>
+    <color name="eggGroup">#EEEEEE</color>
+    <color name="textColor">#000</color>
+    <color name="strokecolor">#FFFFFF</color>
+    <color name="bordercolor">#5c8961</color>
+
+    <string name="title_activity_loai_hinh">LoaiHinhActivity</string>
+    <string name="title_activity_chitiet_">Chitiet_Activity</string>
+    <string name="title_activity_map">MapActivity</string>
+    <string name="title_activity_round_image">RoundImage</string>
+    <string name="title_activity_list__tour">List_Tour</string>
+    <string name="title_activity_my_tour_map">My_tour_map</string>
+    <string name="title_activity_my_tour_complete">My_tour_complete</string>
+    <string name="title_activity_my_tour_review">My_tour_review</string>
+
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="holo_blue_dark">#ff0099cc</color>
+    <color name="view_divider_color">#BABABA</color>
+    <color name="view_divider_color_2">#DADADA</color>
+	<color name="green">#00EE00</color>
+	<color name="drawercolor">#BBFFFF</color>
+	<color name="action_bar_color">#000080</color>
+	
+</resources>
