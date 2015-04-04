@@ -60,7 +60,7 @@
     </ListView>
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/btnHoanthanh"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/action_bar_color"
