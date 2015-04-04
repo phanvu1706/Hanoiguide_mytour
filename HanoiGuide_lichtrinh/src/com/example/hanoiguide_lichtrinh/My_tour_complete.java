@@ -1,16 +1,34 @@
 package com.example.hanoiguide_lichtrinh;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 
 public class My_tour_complete extends ActionBarActivity {
+	
+	Button btnHoanthanh;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.mytour_complete);
+		btnHoanthanh = (Button) findViewById(R.id.btnHoanthanh);
+		btnHoanthanh.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent t = new Intent(getApplicationContext(),
+						My_tour_list.class);
+				startActivity(t);
+
+			}
+		});
 	}
 
 	@Override

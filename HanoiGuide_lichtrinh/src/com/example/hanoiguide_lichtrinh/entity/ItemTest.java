@@ -1,6 +1,8 @@
 package com.example.hanoiguide_lichtrinh.entity;
 
-public class ItemTest {
+import java.io.Serializable;
+
+public class ItemTest implements Serializable{
 
 	int imageResource;
 	String text;
