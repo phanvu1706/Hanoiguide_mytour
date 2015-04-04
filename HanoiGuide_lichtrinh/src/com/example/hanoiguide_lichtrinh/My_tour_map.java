@@ -1,12 +1,12 @@
 package com.example.hanoiguide_lichtrinh;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class My_tour_map extends Activity {
+public class My_tour_map extends ActionBarActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
