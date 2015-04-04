@@ -42,7 +42,7 @@ public class ItemLT extends Fragment {
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 
-		android = inflater.inflate(R.layout.mytour_list, container,
+		android = inflater.inflate(R.layout.mytour_list_item, container,
 				false);
 		setHasOptionsMenu(true);
 		((ImageView) android.findViewById(R.id.circularImg))
