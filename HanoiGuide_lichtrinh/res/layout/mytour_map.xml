@@ -18,7 +18,7 @@
             android:id="@+id/btnCircularAdd"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_margin="10dp"
+            android:layout_margin="12dp"
             android:layout_alignParentRight="true"
             android:scaleType="centerInside"
             android:src="@drawable/button_add" />

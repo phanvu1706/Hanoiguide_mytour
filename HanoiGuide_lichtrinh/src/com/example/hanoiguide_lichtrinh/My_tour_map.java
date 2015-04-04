@@ -8,14 +8,25 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class My_tour_map extends ActionBarActivity {
 	
+	Button btnCircleAdd;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.mytour_map);		
+		setContentView(R.layout.mytour_map);
+		btnCircleAdd = (Button)findViewById(R.id.btnCircularAdd);
+		btnCircleAdd.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Toast.makeText(getApplicationContext(), "Hello", Toast.LENGTH_LONG).show();
+			}
+		});
 	}
 
 	@Override
