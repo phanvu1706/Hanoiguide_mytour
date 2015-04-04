@@ -1,14 +1,7 @@
 package com.example.hanoiguide_lichtrinh;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.example.hanoiguide_lichtrinh.model.Global;
-import com.example.hanoiguide_lichtrinh.model.ItemTest;
 import com.example.hanoiguide_lichtrinh.ultis.myCustomAlert;
 
-import android.support.v4.app.ActionBarDrawerToggle;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.app.Dialog;
 import android.content.Intent;
@@ -20,7 +13,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;

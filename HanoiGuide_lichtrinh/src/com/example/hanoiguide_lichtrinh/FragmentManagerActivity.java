@@ -42,7 +42,7 @@ public class FragmentManagerActivity extends MaterialNavigationDrawer implements
 		this.addSection(newSection("Giao thông", R.drawable.menu_giaothong,
 				new FragmentIndex()));
 		this.addSection(newSection("Lịch trình", R.drawable.menu_diemdulich,
-				new Intent(FragmentManagerActivity.this, My_tour_list.class)));
+				new My_tour_list()));
 	}
 
 	@Override
