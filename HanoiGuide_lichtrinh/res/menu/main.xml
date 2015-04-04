@@ -6,7 +6,7 @@
     <item
         android:id="@+id/action_next_complete"
         android:orderInCategory="100"
-        android:icon="@drawable/button_add"
+        android:icon="@drawable/ic_action_accept"
         android:title="@string/action_settings"
         app:showAsAction="ifRoom"/>
 
