@@ -31,6 +31,8 @@
 
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
+    <string name="app_id">1429950427299746</string>
+    <string name="facebook_app_name">HanoiGuide</string>
 
     <color name="egg">#aca9c5</color>
     <color name="eggGroup">#EEEEEE</color>
