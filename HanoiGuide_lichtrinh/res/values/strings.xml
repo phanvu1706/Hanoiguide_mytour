@@ -64,4 +64,6 @@
     <string name="facebook_app_name">HanoiGuide</string>
     <string name="exception">Exception: %1$s</string>
 
+	<string name="ngaybatdau">Ngày bắt đầu</string>
+	
 </resources>

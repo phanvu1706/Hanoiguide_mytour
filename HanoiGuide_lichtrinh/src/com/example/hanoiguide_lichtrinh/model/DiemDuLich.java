@@ -61,5 +61,8 @@ public class DiemDuLich {
 		this.longtitude = longtitude;
 	}
 	
+	public String toString() {
+		return this.tenDiemDL;
+	}
 	
 }

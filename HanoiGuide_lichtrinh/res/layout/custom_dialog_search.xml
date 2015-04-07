@@ -10,7 +10,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginBottom="10dp"
         android:ems="10"
-        android:hint="Điểm bắt đầu"
+        android:hint="Tìm kiếm"
         android:inputType="text" >
 
         <requestFocus />

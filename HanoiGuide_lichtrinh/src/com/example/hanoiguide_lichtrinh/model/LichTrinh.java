@@ -8,8 +8,8 @@ public class LichTrinh {
 	private String mota;
 	private String image;
 	private String isPublic;
-	private Date ngayDatDau;
-	private Date ngayKetThuc;
+	private String ngayDatDau;
+	private String ngayKetThuc;
 	private String reminder;
 	private String user_id;
 	private String diemDB_lat;
@@ -20,7 +20,7 @@ public class LichTrinh {
 	}
 
 	public LichTrinh(String maLichTrinh, String tenLichTrinh, String mota,
-			String image, String isPublic, Date ngayDatDau, Date ngayKetThuc,
+			String image, String isPublic, String ngayDatDau, String ngayKetThuc,
 			String reminder, String user_id, String diemDB_lat,
 			String diemDB_lon) {
 		super();
@@ -77,19 +77,19 @@ public class LichTrinh {
 		this.isPublic = isPublic;
 	}
 
-	public Date getNgayDatDau() {
+	public String getNgayDatDau() {
 		return ngayDatDau;
 	}
 
-	public void setNgayDatDau(Date ngayDatDau) {
+	public void setNgayDatDau(String ngayDatDau) {
 		this.ngayDatDau = ngayDatDau;
 	}
 
-	public Date getNgayKetThuc() {
+	public String getNgayKetThuc() {
 		return ngayKetThuc;
 	}
 
-	public void setNgayKetThuc(Date ngayKetThuc) {
+	public void setNgayKetThuc(String ngayKetThuc) {
 		this.ngayKetThuc = ngayKetThuc;
 	}
 

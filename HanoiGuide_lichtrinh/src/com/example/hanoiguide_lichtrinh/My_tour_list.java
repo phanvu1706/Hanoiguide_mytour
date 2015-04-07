@@ -1,8 +1,8 @@
 package com.example.hanoiguide_lichtrinh;
 
-import com.example.hanoiguide_lichtrinh.model.Global;
 import com.example.hanoiguide_lichtrinh.model.ItemTest;
 import com.example.hanoiguide_lichtrinh.ultis.TabPagerAdapter;
+import com.hanoiguide_lichtrinh.app.Global;
 
 import android.content.Intent;
 import android.os.Bundle;

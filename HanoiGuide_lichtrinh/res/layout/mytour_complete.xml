@@ -1,10 +1,11 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:layout_margin="15dp"
     android:orientation="vertical" >
 
     <LinearLayout
+        android:id="@+id/llBaothuc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|center_vertical"
@@ -29,34 +30,25 @@
             android:layout_weight="1"
             android:gravity="center_vertical|start|center_horizontal"
             android:text="" />
-
-        <TextView
-            android:id="@+id/tvBaothuc"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="right"
-            android:text="09:00" />
     </LinearLayout>
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/egg"
-        android:paddingBottom="15dp"
+        android:background="#c0c0c0"
+        android:paddingBottom="10dp"
         android:paddingLeft="10dp"
         android:paddingTop="10dp"
-        android:text="Lịch trình" />
+        android:text="Lịch trình" 
+        android:layout_below="@+id/llBaothuc"/>
 
     <ListView
-        android:id="@+id/lvHanhtrinh"
+        android:id="@+id/lvDiemTime"
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:layout_gravity="top"
-        android:layout_marginLeft="-15dp"
-        android:layout_weight="1"
-        android:entries="@array/diem_bat_dau" >
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/textView2" >
     </ListView>
 
     <Button
@@ -64,7 +56,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/action_bar_color"
+        android:layout_alignParentBottom="true"
         android:text="Hoàn thành"
         android:textColor="#fff" />
-
-</LinearLayout>
+</RelativeLayout>

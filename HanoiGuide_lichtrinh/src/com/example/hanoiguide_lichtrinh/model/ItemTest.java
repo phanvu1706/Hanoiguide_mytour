@@ -1,8 +1,6 @@
 package com.example.hanoiguide_lichtrinh.model;
 
-import java.io.Serializable;
-
-public class ItemTest implements Serializable{
+public class ItemTest {
 
 	int imageResource;
 	String text;

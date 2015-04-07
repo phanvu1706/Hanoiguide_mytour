@@ -1,5 +1,13 @@
 package com.example.hanoiguide_lichtrinh;
 
+import hanoi.database_hanlder.ExecuteQuery;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import com.example.hanoiguide_lichtrinh.ultis.MyTourComplete_Item;
+import com.hanoiguide_lichtrinh.adapter.MyTourCompleteAdapter;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -8,15 +16,38 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ListView;
 
 public class My_tour_complete extends ActionBarActivity {
-	
-	Button btnHoanthanh;
 
+	private Button btnHoanthanh;
+	private ListView lvDiemTime;
+	
+	private String MALICHTRINH;
+	
+	private ArrayList<MyTourComplete_Item> listTourComplete = new ArrayList<MyTourComplete_Item>();
+	private MyTourCompleteAdapter adapter = null;
+
+	private ExecuteQuery execQ;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.mytour_complete);
+
+		Bundle bundle = getIntent().getExtras();
+		MALICHTRINH = bundle.getString("MALICHTRINH");
+		
+		execQ = new ExecuteQuery(this);
+		execQ.createDatabase();
+		execQ.open();
+		
+		listTourComplete = execQ.select_tenma_tbl_lichtrinh_diemdulich(MALICHTRINH);
+//		listTourComplete.add(new MyTourComplete_Item("1", "Ho Tay", "00:00"));
+//		listTourComplete.add(new MyTourComplete_Item("2", "Ho Nam", "1"));
+//		listTourComplete.add(new MyTourComplete_Item("3", "Ho Bac", "1"));
+//		listTourComplete.add(new MyTourComplete_Item("4", "Ho Dong", "1"));
+		
 		btnHoanthanh = (Button) findViewById(R.id.btnHoanthanh);
 		btnHoanthanh.setOnClickListener(new OnClickListener() {
 
@@ -29,6 +60,10 @@ public class My_tour_complete extends ActionBarActivity {
 
 			}
 		});
+		
+		lvDiemTime = (ListView) findViewById(R.id.lvDiemTime);
+		adapter = new MyTourCompleteAdapter(this, R.layout.mytourcomplete_itemrow, listTourComplete);
+		lvDiemTime.setAdapter(adapter);
 	}
 
 	@Override
@@ -49,4 +84,5 @@ public class My_tour_complete extends ActionBarActivity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+
 }
