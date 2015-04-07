@@ -7,7 +7,13 @@ import hanoi.database_hanlder.ExecuteQuery;
 import com.example.hanoiguide_lichtrinh.model.DiemDuLich;
 import com.example.hanoiguide_lichtrinh.model.LichTrinh;
 import com.example.hanoiguide_lichtrinh.ultis.myCustomAlert;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
+import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.model.LatLng;
 import com.hanoiguide_lichtrinh.app.Global;
 
 import android.support.v7.app.ActionBarActivity;
@@ -26,7 +32,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class My_tour_add_new extends ActionBarActivity {
+public class My_tour_add_new extends ActionBarActivity implements ConnectionCallbacks, OnConnectionFailedListener{
 	private myCustomAlert mca;
 
 	private EditText etDiemDB;
@@ -37,6 +43,10 @@ public class My_tour_add_new extends ActionBarActivity {
 	private Button btnTieptuc;
 
 	private ExecuteQuery execQ;
+
+	private GoogleApiClient mGoogleApiClient;
+
+	private Location mLastLocation;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -210,5 +220,49 @@ public class My_tour_add_new extends ActionBarActivity {
 			list.add(dl.getTenDiemDL());
 		}
 		return list;
+	}
+
+	@Override
+	protected void onStop() {
+		// TODO Auto-generated method stub
+		super.onStop();
+		if (mGoogleApiClient.isConnected()) {
+            mGoogleApiClient.disconnect();
+        }
+	}
+
+	@Override
+	protected void onStart() {
+		// TODO Auto-generated method stub
+		super.onStart();
+		mGoogleApiClient.connect();
+	}
+
+	@Override
+	public void onConnectionFailed(ConnectionResult result) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onConnected(Bundle connectionHint) {
+		// TODO Auto-generated method stub
+		mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
+		
+		//Toast.makeText(getApplicationContext(), myLocation.latitude + "", Toast.LENGTH_LONG).show();
+	}
+	
+	public LatLng getLatLng(){
+		if (mLastLocation != null) {
+			LatLng myLocation = new LatLng(mLastLocation.getLatitude(), mLastLocation.getLongitude());
+			return myLocation;
+		}
+		return null;
+	}
+
+	@Override
+	public void onConnectionSuspended(int cause) {
+		// TODO Auto-generated method stub
+		mGoogleApiClient.connect();
 	}
 }
