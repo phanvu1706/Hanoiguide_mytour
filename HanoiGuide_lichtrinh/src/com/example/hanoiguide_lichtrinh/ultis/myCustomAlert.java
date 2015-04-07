@@ -26,14 +26,14 @@ public class myCustomAlert extends Dialog{
 	
 	Context context;
 	ArrayAdapter<String> adapter;
-	
+	ArrayList<String> list;
 
-	public myCustomAlert(Context context) {
+	public myCustomAlert(Context context, ArrayList<String> list) {
 		super(context);		
 		// TODO Auto-generated constructor stub
 		
 		this.context = context;
-		
+		this.list = list;
 	}
 
 	@Override
@@ -41,15 +41,16 @@ public class myCustomAlert extends Dialog{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.custom_dialog_search);
+		this.setTitle("Điểm bắt đầu");
+		
 		EditText etSearch = (EditText) findViewById(R.id.etSearch);
 		ListView lv = (ListView) findViewById(R.id.lvItemDiemBD);
+		
 		lv.setTextFilterEnabled(true);
-		List<String> ls = new ArrayList<>();
-		ls.add("Hien tai");
-		ls.add("Diem 1");
-		ls.add("Diem 2");
-		ls.add("Diem 3");
-		adapter = new ArrayAdapter<>(context, android.R.layout.simple_list_item_1, ls);
+		
+		list.add(0, "Vị trí hiện tại");
+		
+		adapter = new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, list);
 		lv.setAdapter(adapter);
 		etSearch.addTextChangedListener(new TextWatcher() {
 			
