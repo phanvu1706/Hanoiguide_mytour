@@ -1,11 +1,15 @@
 package com.example.hanoiguide_lichtrinh;
 
 import com.example.hanoiguide_lichtrinh.R;
+import com.example.hanoiguide_lichtrinh.model.Global;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookSdk;
+import com.facebook.Profile;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.widget.Toast;
 import it.neokree.materialnavigationdrawer.MaterialNavigationDrawer;
 import it.neokree.materialnavigationdrawer.elements.MaterialAccount;
 import it.neokree.materialnavigationdrawer.elements.MaterialSection;
@@ -23,10 +27,15 @@ public class FragmentManagerActivity extends MaterialNavigationDrawer implements
 	public void init(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		
+		if (Global.FBaccount == null) {
+			account = new MaterialAccount(this.getResources(), "Thor", "Thor",
+					R.drawable.ava_1, R.drawable.cover_1);
+			this.addAccount(account);
+		}else {
+			this.addAccount(Global.FBaccount);
+		}
 		
-		account = new MaterialAccount(this.getResources(), "Thor", "Thor",
-				R.drawable.ava_1, R.drawable.cover_1);
-		this.addAccount(account);
+		
 
 		// close material navigation drawer at first
 		this.disableLearningPattern();
@@ -47,7 +56,7 @@ public class FragmentManagerActivity extends MaterialNavigationDrawer implements
 				new FragmentIndex()));
 		this.addSection(newSection("Lịch trình", R.drawable.menu_diemdulich,
 				new My_tour_list()));
-		
+		this.addBottomSection(newSection("Login", new Intent(getApplicationContext(), HelloFacebookSampleActivity.class)));		
 	}
 
 	@Override

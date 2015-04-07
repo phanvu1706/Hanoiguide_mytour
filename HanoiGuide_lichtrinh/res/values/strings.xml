@@ -31,8 +31,6 @@
 
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
-    <string name="app_id">1429950427299746</string>
-    <string name="facebook_app_name">HanoiGuide</string>
 
     <color name="egg">#aca9c5</color>
     <color name="eggGroup">#EEEEEE</color>
@@ -48,5 +46,22 @@
     <string name="title_activity_my_tour_map">My_tour_map</string>
     <string name="title_activity_my_tour_complete">My_tour_complete</string>
     <string name="title_activity_my_tour_review">My_tour_review</string>
+    
+    <string name="cancelled">Cancelled</string>
+    <string name="permission_not_granted">Unable to perform selected action because permissions were not granted.</string>
+    <string name="ok">OK</string>
+    <string name="hello_user">Hello %1$s!</string>
+    <string name="success">Success</string>
+    <string name="successfully_posted_post">Post ID: %1$s</string>
+    <string name="error">Error</string>
+    <string name="status_update">Updating status for %1$s at %2$s</string>
+    <string name="photo_post">Photo Post</string>
+    <string name="you_picked">You picked:</string>
+    <string name="no_friends_selected">&lt;No friends selected&gt;</string>
+    <string name="no_place_selected">&lt;No place selected&gt;</string>
+    <string name="pick_seattle_place">Pick a Seattle Place</string>
+    <string name="app_id">943732898992337</string>
+    <string name="facebook_app_name">HanoiGuide</string>
+    <string name="exception">Exception: %1$s</string>
 
 </resources>
