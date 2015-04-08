@@ -67,6 +67,7 @@ public class My_tour_add_new extends ActionBarActivity implements ConnectionCall
 
 		// Global.LIST_DIEMDULICH = execQ.getAllDiemDL();
 		Global.DL();
+		buildGoogleApiClient();
 
 		mca = new myCustomAlert(My_tour_add_new.this, getTenDiemL());
 
@@ -213,6 +214,14 @@ public class My_tour_add_new extends ActionBarActivity implements ConnectionCall
 			}
 		});
 	}
+	
+	protected synchronized void buildGoogleApiClient() {
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
+                .addApi(LocationServices.API)
+                .build();
+    }
 
 	public ArrayList<String> getTenDiemL() {
 		ArrayList<String> list = new ArrayList<String>();
