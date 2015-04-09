@@ -55,5 +55,6 @@ public final class Global {
 				"Nhà Hát Lớn Hà Nội", "", "21.023967", "105.857943"));
 		Global.LIST_DIEMDULICH.add(new DiemDuLich("DL_langcthochiminh",
 				"Lăng Chủ tịch Hồ Chí Minh", "", "21.036487", "105.834651"));
+		
 	}
 }
