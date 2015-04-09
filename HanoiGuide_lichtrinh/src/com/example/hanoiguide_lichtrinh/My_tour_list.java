@@ -1,6 +1,11 @@
 package com.example.hanoiguide_lichtrinh;
 
+import hanoi.database_hanlder.ExecuteQuery;
+
+import java.util.ArrayList;
+
 import com.example.hanoiguide_lichtrinh.model.ItemTest;
+import com.example.hanoiguide_lichtrinh.model.LichTrinh;
 import com.example.hanoiguide_lichtrinh.ultis.TabPagerAdapter;
 import com.hanoiguide_lichtrinh.app.Global;
 
@@ -20,25 +25,20 @@ public class My_tour_list extends Fragment {
 	ViewPager pageView;
 	TabPagerAdapter TabAdapter;	
 	View view;
+	private ExecuteQuery execQ;
+	ArrayList<LichTrinh> listLT;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		view = inflater.inflate(R.layout.mytour_list, container, false);
-		Global.LIST.add(new ItemTest(R.drawable.quoc_tu_dam, "Test 1"));
-		Global.LIST.add(new ItemTest(R.drawable.quoc_tu_dam, "Test 2"));
-		Global.LIST.add(new ItemTest(R.drawable.quoc_tu_dam, "Test 3"));
-		Global.LIST.add(new ItemTest(R.drawable.quoc_tu_dam, "Test 4"));
-		Global.LIST.add(new ItemTest(R.drawable.quoc_tu_dam, "Test 5"));
-		Global.LIST.add(new ItemTest(R.drawable.quoc_tu_dam, "Test 6"));
-		Global.LIST.add(new ItemTest(R.drawable.quoc_tu_dam, "Test 7"));
-		Global.LIST.add(new ItemTest(R.drawable.quoc_tu_dam, "Test 8"));
-		Global.LIST.add(new ItemTest(R.drawable.quoc_tu_dam, "Test 9"));
-		Global.LIST.add(new ItemTest(R.drawable.quoc_tu_dam, "Test 10"));		
-
+		execQ = new ExecuteQuery(getActivity().getApplicationContext());
+		execQ.createDatabase();
+		execQ.open();
+		listLT = execQ.select_table_lichtrinh();		
 		// create the TabHost that will contain the Tabs
-		TabAdapter = new TabPagerAdapter(getChildFragmentManager());
+		TabAdapter = new TabPagerAdapter(getChildFragmentManager(), listLT);		
 		pageView = (ViewPager) view.findViewById(R.id.pager);
 		pageView.setAdapter(TabAdapter);
 		pageView.setOnPageChangeListener(new OnPageChangeListener() {
