@@ -59,7 +59,7 @@ public class My_tour_map extends ActionBarActivity implements
 
 		execQ = new ExecuteQuery(this);
 		execQ.createDatabase();
-		execQ.close();
+		execQ.open();
 		
 		list = Global.LIST_DIEMDULICH;
 		
@@ -152,6 +152,9 @@ public class My_tour_map extends ActionBarActivity implements
 			for (String s : listSave) {
 				LichTrinh_Diemdulich lt = new LichTrinh_Diemdulich(MALICHTRINH, s, "");
 				execQ.insert_table_lichtrinh_diemdulich(lt);
+				
+				
+//				Log.d("MA LICH TRINH", execQ.selTest(s));
 			}
 			Intent t = new Intent(getApplicationContext(),
 					My_tour_complete.class);

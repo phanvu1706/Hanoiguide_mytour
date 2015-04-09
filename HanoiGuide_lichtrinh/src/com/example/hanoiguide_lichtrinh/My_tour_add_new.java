@@ -18,6 +18,7 @@ import com.hanoiguide_lichtrinh.app.Global;
 
 import android.support.v7.app.ActionBarActivity;
 import android.text.format.Time;
+import android.util.Log;
 import android.app.Dialog;
 import android.content.Intent;
 import android.location.Location;
@@ -32,7 +33,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class My_tour_add_new extends ActionBarActivity implements ConnectionCallbacks, OnConnectionFailedListener{
+public class My_tour_add_new extends ActionBarActivity implements
+		ConnectionCallbacks, OnConnectionFailedListener {
 	private myCustomAlert mca;
 
 	private EditText etDiemDB;
@@ -67,6 +69,7 @@ public class My_tour_add_new extends ActionBarActivity implements ConnectionCall
 
 		// Global.LIST_DIEMDULICH = execQ.getAllDiemDL();
 		Global.DL();
+		execQ.insertDiemDL(Global.LIST_DIEMDULICH);
 		buildGoogleApiClient();
 
 		mca = new myCustomAlert(My_tour_add_new.this, getTenDiemL());
@@ -115,8 +118,17 @@ public class My_tour_add_new extends ActionBarActivity implements ConnectionCall
 					return;
 				}
 				String lat = null, lon = null, madiemdl = null, tenDiemDL = null;
+
+				Time now = new Time(Time.getCurrentTimezone());
+				now.setToNow();
+				String ma = now.monthDay + "" + now.month + "" + now.year + ""
+						+ now.hour + "" + now.minute + "" + now.second;
+
 				if (diemDB.equals("Vị trí hiện tại")) {
-					
+					madiemdl = ma;
+					tenDiemDL = "Vi tri hien tai";
+					lat = getLatLng().latitude + "";
+					lon = getLatLng().longitude + "";
 				} else {
 					for (DiemDuLich dl : Global.LIST_DIEMDULICH) {
 						if (diemDB.trim().equals(dl.getTenDiemDL())) {
@@ -128,27 +140,37 @@ public class My_tour_add_new extends ActionBarActivity implements ConnectionCall
 						}
 					}
 				}
-				Time now = new Time(Time.getCurrentTimezone());
-				now.setToNow();
-				String ma = now.monthDay + "" + now.month + "" + now.year + ""
-						+ now.hour + "" + now.minute + "" + now.second;
-				if (execQ.insert_table_lichtrinh(new LichTrinh(ma, ten, "", "",
-						"1", ngayBD, ngayKT, "1", "user", lat, lon)) == 1) {
-					Intent i = new Intent(My_tour_add_new.this,
-							My_tour_map.class);
-					i.putExtra("MALICHTRINH", ma);
-					i.putExtra("LAT", lat);
-					i.putExtra("LON", lon);
-					i.putExtra("MADIEMDL", madiemdl);
-					i.putExtra("TenDiemDL", tenDiemDL);
-					startActivity(i);
-				} else {
-					Toast.makeText(getApplicationContext(), "FAIL",
-							Toast.LENGTH_SHORT).show();
-					return;
 
-				}
-
+				// if (execQ.insert_table_lichtrinh(new LichTrinh(ma, ten, "",
+				// "",
+				// "1", ngayBD, ngayKT, "1", "user", lat, lon)) == 1) {
+				// Intent i = new Intent(My_tour_add_new.this,
+				// My_tour_map.class);
+				// i.putExtra("MALICHTRINH", ma);
+				// i.putExtra("LAT", lat);
+				// i.putExtra("LON", lon);
+				// i.putExtra("MADIEMDL", madiemdl);
+				// i.putExtra("TenDiemDL", tenDiemDL);
+				// startActivity(i);
+				// } else {
+				// Toast.makeText(getApplicationContext(), "FAIL",
+				// Toast.LENGTH_SHORT).show();
+				// return;
+				//
+				// }
+				execQ.insert_table_lichtrinh(new LichTrinh(ma, ten, "", "",
+						"1", ngayBD, ngayKT, "1", "user", lat, lon));
+				
+				String t = execQ.getTenLichtrinh(ma);
+				Log.d("TEN LICH TRINH", t);
+				
+				Intent i = new Intent(My_tour_add_new.this, My_tour_map.class);
+				i.putExtra("MALICHTRINH", ma);
+				i.putExtra("LAT", lat);
+				i.putExtra("LON", lon);
+				i.putExtra("MADIEMDL", madiemdl);
+				i.putExtra("TenDiemDL", tenDiemDL);
+				startActivity(i);
 			}
 		});
 
@@ -214,14 +236,13 @@ public class My_tour_add_new extends ActionBarActivity implements ConnectionCall
 			}
 		});
 	}
-	
+
 	protected synchronized void buildGoogleApiClient() {
-        mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .addConnectionCallbacks(this)
-                .addOnConnectionFailedListener(this)
-                .addApi(LocationServices.API)
-                .build();
-    }
+		mGoogleApiClient = new GoogleApiClient.Builder(this)
+				.addConnectionCallbacks(this)
+				.addOnConnectionFailedListener(this)
+				.addApi(LocationServices.API).build();
+	}
 
 	public ArrayList<String> getTenDiemL() {
 		ArrayList<String> list = new ArrayList<String>();
@@ -236,8 +257,8 @@ public class My_tour_add_new extends ActionBarActivity implements ConnectionCall
 		// TODO Auto-generated method stub
 		super.onStop();
 		if (mGoogleApiClient.isConnected()) {
-            mGoogleApiClient.disconnect();
-        }
+			mGoogleApiClient.disconnect();
+		}
 	}
 
 	@Override
@@ -250,20 +271,23 @@ public class My_tour_add_new extends ActionBarActivity implements ConnectionCall
 	@Override
 	public void onConnectionFailed(ConnectionResult result) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void onConnected(Bundle connectionHint) {
 		// TODO Auto-generated method stub
-		mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
-		
-		//Toast.makeText(getApplicationContext(), myLocation.latitude + "", Toast.LENGTH_LONG).show();
+		mLastLocation = LocationServices.FusedLocationApi
+				.getLastLocation(mGoogleApiClient);
+
+		// Toast.makeText(getApplicationContext(), myLocation.latitude + "",
+		// Toast.LENGTH_LONG).show();
 	}
-	
-	public LatLng getLatLng(){
+
+	public LatLng getLatLng() {
 		if (mLastLocation != null) {
-			LatLng myLocation = new LatLng(mLastLocation.getLatitude(), mLastLocation.getLongitude());
+			LatLng myLocation = new LatLng(mLastLocation.getLatitude(),
+					mLastLocation.getLongitude());
 			return myLocation;
 		}
 		return null;
