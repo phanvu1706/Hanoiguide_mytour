@@ -33,10 +33,12 @@ public class My_tour_list extends Fragment {
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		view = inflater.inflate(R.layout.mytour_list, container, false);
+
 		execQ = new ExecuteQuery(getActivity().getApplicationContext());
 		execQ.createDatabase();
 		execQ.open();
 		listLT = execQ.select_table_lichtrinh();		
+
 		// create the TabHost that will contain the Tabs
 		TabAdapter = new TabPagerAdapter(getChildFragmentManager(), listLT);		
 		pageView = (ViewPager) view.findViewById(R.id.pager);
