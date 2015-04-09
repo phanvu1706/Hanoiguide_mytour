@@ -1,10 +1,10 @@
 package com.example.hanoiguide_lichtrinh;
 
 import com.example.hanoiguide_lichtrinh.R;
-import com.example.hanoiguide_lichtrinh.model.Global;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookSdk;
 import com.facebook.Profile;
+import com.hanoiguide_lichtrinh.app.Global;
 
 import android.content.Intent;
 import android.os.Bundle;
