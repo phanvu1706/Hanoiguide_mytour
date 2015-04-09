@@ -28,7 +28,7 @@ public class FragmentManagerActivity extends MaterialNavigationDrawer implements
 		// TODO Auto-generated method stub
 		
 		if (Global.FBaccount == null) {
-			account = new MaterialAccount(this.getResources(), "Thor", "Thor",
+			account = new MaterialAccount(this.getResources(), "Trung Hiếu", "FITHOU - 2015",
 					R.drawable.ava_1, R.drawable.cover_1);
 			this.addAccount(account);
 		}else {
@@ -40,15 +40,15 @@ public class FragmentManagerActivity extends MaterialNavigationDrawer implements
 		// close material navigation drawer at first
 		this.disableLearningPattern();
 
-		haNoi = newSection("Hà Nội", R.drawable.instagram32,
+		haNoi = newSection("Hà Nội", R.drawable.khuevancac_dark,
 				new HaNoiFragment());
 		this.addSection(haNoi);
 
-		this.addSection(newSection("Điểm du lịch", R.drawable.menu_giaothong,
+		this.addSection(newSection("Điểm du lịch", R.drawable.menu_diemdulich,
 				new FragmentIndex()));
 		this.addSection(newSection("Khách sạn", R.drawable.menu_khachsan,
 				new FragmentIndex()));
-		this.addSection(newSection("Nhà hàng", R.drawable.menu_diemdulich,
+		this.addSection(newSection("Nhà hàng", R.drawable.menu_nhahang,
 				new FragmentIndex()));
 		this.addSection(newSection("Mua sắm", R.drawable.menu_muasam,
 				new FragmentIndex()));
@@ -56,7 +56,7 @@ public class FragmentManagerActivity extends MaterialNavigationDrawer implements
 				new FragmentIndex()));
 		this.addSection(newSection("Lịch trình", R.drawable.menu_diemdulich,
 				new My_tour_list()));
-		this.addBottomSection(newSection("Login", new Intent(getApplicationContext(), HelloFacebookSampleActivity.class)));		
+		this.addBottomSection(newSection("Login",R.drawable.menu_login, new Intent(getApplicationContext(), HelloFacebookSampleActivity.class)));		
 	}
 
 	@Override
