@@ -35,7 +35,8 @@ public class My_tour_list extends Fragment {
 		Global.LIST.add(new ItemTest(R.drawable.quoc_tu_dam, "Test 7"));
 		Global.LIST.add(new ItemTest(R.drawable.quoc_tu_dam, "Test 8"));
 		Global.LIST.add(new ItemTest(R.drawable.quoc_tu_dam, "Test 9"));
-		Global.LIST.add(new ItemTest(R.drawable.quoc_tu_dam, "Test 10"));		
+		Global.LIST.add(new ItemTest(R.drawable.quoc_tu_dam, "Test 10"));
+		Global.LIST.add(new ItemTest(R.drawable.quoc_tu_dam, "Test 11"));
 
 		// create the TabHost that will contain the Tabs
 		TabAdapter = new TabPagerAdapter(getChildFragmentManager());
